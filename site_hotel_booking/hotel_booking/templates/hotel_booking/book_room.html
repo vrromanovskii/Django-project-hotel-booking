@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Бронирование номера</title>
+</head>
+<body>
+    <h1>Бронирование номера: {{ room.name }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Забронировать</button>
+    </form>
+    <p><a href="{% url 'hotel_rooms' %}">Назад к списку номеров</a></p>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Панель управелния номерами</title>
+</head>
+<body>
+<li> <a href="{% url 'hotel_main_page' %}">На главную</a> </li>
+
+<ul>
+    {% for room in rooms %}
+        <li>{{ room }} — Цена: {{ room.price }} руб.</li>
+    <a href="{% url 'delete_room' room_id=room.id %}">Удалить</a><br><br>
+    {% endfor %}
+</ul>
+<a href="{% url 'add_room' %}">Добавить номер</a>
+</body>
+</html>

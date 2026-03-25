@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+<h1>{{ title }}</h1>
+<li> <a href="{% url 'hotel_rooms' %}">Доступные номера</a> </li>
+<br><br>
+<li><a href="{% url 'room_admin_panel' %}">Управление каталогом номеров (только для администраторов)</li>
+</body>
+</html>

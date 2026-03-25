@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Бронирования номера {{ room.name }}</title>
+</head>
+<body>
+    <h1>Бронирования номера: {{ room.name }}</h1>
+    <ul>
+        {% for booking in bookings %}
+            <li>
+                {{ booking.guest_name }}:
+                {{ booking.check_in|date:"d.m.Y" }} — {{ booking.check_out|date:"d.m.Y" }}
+                <a href="{% url 'delete_booking' booking_id=booking.id %}"
+                       onclick="return confirm('Удалить бронирование {{ booking.guest_name }}?')">Удалить</a>
+            </li>
+        {% empty %}
+            <li>Нет бронирований</li>
+        {% endfor %}
+    </ul>
+    <p><a href="{% url 'hotel_rooms' %}">Назад к списку номеров</a></p>
+</body>
+</html>
